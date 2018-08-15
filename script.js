@@ -1,6 +1,6 @@
 const container = document.querySelector('#container');
 const gridContainer = document.querySelector('#grid-container');
-let size = 16;
+let size = prompt("How many pixels on each side do you want");
 const btn = document.getElementById('btn');
 
 let input = document.querySelector('input');
@@ -18,20 +18,28 @@ function createGrid() {
 
 createGrid();
 
-const grid = document.querySelectorAll('.grid-item');
+
 function draw() {
-    grid.forEach(element =>
-  element.addEventListener('mouseover', e => {
-            e.target.style.backgroundColor = input.value;
-  }));
-}
+    const grid = document.querySelectorAll('.grid-item');
+      grid.forEach(element =>
+    element.addEventListener('mouseover', e => {
+              e.target.style.backgroundColor = input.value;
+    }))
+  }
+  
 
 draw();
 
-    function reset() {
-    gridContainer.innerHTML = " ";
+function reset() {
+    gridContainer.innerHTML = "";
     createGrid();
     draw();
 }
 
+reset();
+
 btn.addEventListener('click', reset);
+
+const headerOne = document.getElementById('hdr');
+
+headerOne.textContent = "The size of the grid is: " + size + " x " + size 
